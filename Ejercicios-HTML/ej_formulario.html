@@ -18,25 +18,88 @@
     https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_output-->
 
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
-Nombre:
-Apellido:
-Sexo: Masculino Femenino
-Edad:
-Email:
-Usuario:
-Password:
-Confirmar Password:
+<form>
+    <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+    </p>
 
-Tipo de servicio: Free / Standard / Premium
-Tema:
-Política
-Negocios
-Tecnología
-Salud
+    <p>
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido">
+    </p>
 
-Agregue un comentario:
+    <p>
+        Sexo:
+        <br>
+            <label for="masculino">Masculino:</label>
+             <input type="radio" value="masculino" name="genero" id="masculino">
+        <br>
+            <label for="femenino"> Femenino:</label>
+             <input type="radio" value="femenino" name="genero" id="femenino">
+        <br>
+            <label for="noRev">Prefiero no revelarlo:</label>
+            <input type="radio" value="noRev" name="genero" id="noRev">
+    </p>
 
-Boton de Enviar
+    <p>
+        <label for="edad">edad:</label>
+        <input type="number" name="edad" id="edad" placeholder="Edad en años">
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="loremipsum@gmail.com">
+    </p>
+
+    <p>
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario">
+    </p>
+
+    <p>
+        <label for=contrasena>Contraseña:</label>
+        <input type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña">
+    </p>
+
+    <p>
+        <label for=contrasena2>Confrimar contraseña:</label>
+        <input type="password" name="contrasena2" id="contrasena2" placeholder="Ingrese nuevamente su contraseña">
+    </p>
+
+    <p>
+        <label for=tiposervicio>Tipo de servicio:</label>
+            <select name="tiposervicio" id="tiposervicio">
+            <option value="Free"> Free</option>
+            <option value="Standard"> Standard</option>
+            <option value="Premium"> Premium</option>
+        </select>
+    </p>
+
+    <p>
+        Tema:
+            <label for=politica>Politica</label>
+            <input type="checkbox" name="tema" value="politica" id="politica">
+            <label for=negocios>Negocios</label>
+            <input type="checkbox" name="tema" value="negocios" id="negocios">
+            <label for=tecnologia>Tecnologia</label>
+            <input type="checkbox" name="tema" value="tecnologia" id="tecnologia">
+            <label for=salud>Salud</label>
+            <input type="checkbox" name="tema" value="salud" id="salud">
+    </p>
+
+    <p>
+        <label for=comentario>Agregue un comentario:</label>
+        <textarea id="comentario" placeholder="Comente aqui"></textarea>
+    </p>
+
+    <p>
+        <button>
+        Boton de Enviar
+        </button>
+    </p>
+
+</form>
 
 
 </body>
