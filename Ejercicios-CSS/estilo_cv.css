@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(to right, #a989e8, #64e3a9);
+}
+div{
+    border: 2px solid #ffffff;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 4px 4px #ffffff;
+}
+#principal{
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+div h3{
+    text-shadow: 2px 2px #fffefe;
+}
