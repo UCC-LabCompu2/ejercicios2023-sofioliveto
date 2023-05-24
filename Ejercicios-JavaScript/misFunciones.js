@@ -28,3 +28,65 @@ function convertirAngulos (id){
         document.getElementById("grados").value=(rad*180)/Math.PI;
     }
 }
+
+/*
+let sumar = () => {
+    let re, s1, s2;
+    s1 = Number(document.operacionesMat.sum_num1.value)
+    s2 = Number(document.operacionesMat.sum_num2.value);
+    if (isNaN(s1)) {
+        alert("El valor ingresado es incorrecto");
+        s1 = "";
+    }
+    if (isNaN(s2)) {
+        alert("El valor ingresado es incorrecto");
+        s2 = "";
+    }
+    re = s1 + s2;
+    document.operacionesMat.sum_total.value = re;
+}
+ */
+
+let generarurl = () => {
+    const dist = document.getElementById("distancia").value;
+    const uni = document.getElementsByName("unidades")[0].value;
+
+    const urlcompl = `segundaWeb.html#${dist}#${uni}`;
+    window.open(urlcompl);
+}
+
+let cargarvalor = () => {
+    let urlcompleta = window.location.href;
+    console.log(urlcompleta);
+    urlcompleta = urlcompleta.split("#");
+
+    const distancia = urlcompleta[1];
+    const unidad = urlcompleta[2];
+    document.getElementById("dist").value= `${distancia} ${unidad}`;
+}
+
+let guardarLS = () => {
+    const dist = document.getElementById("distancia").value;
+    const uni = document.getElementsByName("unidades")[0].value;
+
+    localStorage.setItem("distanciaLS",dist);
+    localStorage.setItem("unidadesLS",uni);
+}
+
+let dibujar = () =>{
+    const canvas=document.getElementById("myCanvas");
+    const ctx=canvas.getContext("2d") //contexto¿
+
+    let xmax=canvas.width; //obtenes ancho maximo del canvas
+    let ymax=canvas.height;
+
+    //dibujo circulo
+    ctx.fillStyle= "#333";
+    ctx.arc(xmax/2,ymax/2,120,0,2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+
+    //dibujo rectangulo
+    let margen=5;
+    ctx.fillRect(margen,ymax-120-margen,130,120);
+}
