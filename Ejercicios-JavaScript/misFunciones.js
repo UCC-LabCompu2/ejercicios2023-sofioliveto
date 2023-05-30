@@ -90,3 +90,88 @@ let dibujar = () =>{
     let margen=5;
     ctx.fillRect(margen,ymax-120-margen,130,120);
 }
+
+let dibujarCuadriculado = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx=canvas.getContext("2d");
+
+    const anchoMax=canvas.width;
+    const alturaMax=canvas.height; //parametrizamos el codigo para que cuando necesitemos cambiar algun valor, cambiemos esto y no cada vez que aparece el numero
+    const intervalo=20;
+    let ejeX=-24;
+    let ejeY=-14;
+
+    //lineas verticales
+    for (let i=intervalo; i<anchoMax; i+=intervalo) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, 600);
+        ctx.strokeStyle = "#030303";
+        ctx.stroke();
+        ctx.font="10px Arial";
+        ctx.fillStyle="#721072"
+        ctx.fillText(ejeX,i,alturaMax/2)
+        ctx.closePath();
+        ejeX++;
+    }
+
+    //lineas horizontales
+    for (let i=intervalo; i<alturaMax; i+=intervalo) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeStyle = "#030303";
+        ctx.stroke();
+        ctx.font="10px Arial";
+        ctx.fillStyle="#721072"
+        ctx.fillText(ejeY,anchoMax/2,i)
+        ctx.closePath();
+        ejeY++;
+    }
+
+    //eje x
+    ctx.beginPath();
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.strokeStyle = "#ff0707";
+    ctx.stroke();
+    ctx.closePath();
+
+    //eje y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.strokeStyle = "#ff0707";
+    ctx.stroke();
+    ctx.closePath();
+}
+
+let dibujarImagen = (posicionX, posicionY) => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const anchoMax=canvas.width;
+    const alturaMax=canvas.height;
+
+    console.log(posicionX, posicionY);
+    let img = new Image();
+    img.src = "images/auto.png";
+
+    if (posicionX < 0 || posicionY < 0 || posicionX>=anchoMax || posicionY>=alturaMax) {
+        abrirDialog();
+    } else {
+        img.onload = function () { //esto lo hacemos pq la imagen tarda un rato en cargarse, entonces esto nos sirve para q recien cuando se cargue la foto se dibuje de una
+            ctx.drawImage(img, posicionX, posicionY);
+        }
+    }
+}
+
+let cerrarDialogo = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.close();
+}
+
+let abrirDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
